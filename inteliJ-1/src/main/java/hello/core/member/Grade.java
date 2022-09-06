@@ -4,4 +4,5 @@ public enum Grade {
     //회원등급
     basic,
     vip
+
 }
