@@ -16,7 +16,7 @@ public class OrderServiceImpl implements OrderService{
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         // 2. 회원 정보 조회
         Member member = memberRepository.findById(memberId); // 회원 조회
-        // 3. 할인 정책에 해당 회원 정보를 넘겨준다.  (단일책임원칙이 잘 설계된 경우, 필요할시 양쪽이 아닌 discountPolicy 할인정책만 수정하면된다.)
+        // 3. 할인 정책에 해당 회원 정보를 넘겨준다.  (단일책임원칙이 잘 설계된 경우, 필요할시 추후에 양쪽(정액, 정률 할인정책이아닌 )이 아닌 discountPolicy 정액할인정책만 수정하면된다.)
         int discountPrice = discountPolicy.discount(member, itemPrice);
 
         // 4. 주문서를 생성
