@@ -2,7 +2,12 @@ package hello.core.member;
 // MemverService 기능에 대한 구현체 생성
 public class MemberServiceImpl implements MemberService {
     // ctrl + shift + Enter 자동완성
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
     //  회원가입
     @Override
     public void join(Member member) {

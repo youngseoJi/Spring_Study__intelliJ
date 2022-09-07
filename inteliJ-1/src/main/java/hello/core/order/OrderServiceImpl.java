@@ -10,9 +10,17 @@ import hello.core.member.MemoryMemberRepository;
 // 주문
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository(); // 회원저장소
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); // 정액할인(고정할인) 정책
-//    private final DiscountPolicy discountPolicy = new RateDiscountPolicy(); // 정률할인 정책
+    // DIP, 준수하기 - 인테페이스에만 의존하게 변경한 것
+    private final MemberRepository memberRepository; // 회원저장소 인터페이스
+    private final DiscountPolicy discountPolicy; // 할인정책 인터페이스
+    //  DIP, 준수안한 것 =>  인터페이스에만 의존하도록 클래스 구현체 X, 관심사 분리! 인터페이스와 구현체 분리
+    //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); // 정액할인(고정할인) 정책
+    //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy(); // 정률할인 정책
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
 
     @Override
     // 1. 주문생성 요청
