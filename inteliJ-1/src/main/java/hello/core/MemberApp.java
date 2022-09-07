@@ -8,7 +8,10 @@ import hello.core.member.MemberServiceImpl;
 public class MemberApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
+//        AppConfig 이용하여 회원 서비스 생성
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService(); //MemberServiceImpl이 들어가 있으며, 사용할 저장소 MemoryMemberRepository 주입해놓은 상태
+        // MemberService memberService = new MemberServiceImpl(); 
         //  ctrl + art + v
         // member 회원가입
         // (id 가 1 (1L L은 Long 타입), 이름 mamberA, 등급은 vip)

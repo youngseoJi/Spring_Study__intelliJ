@@ -22,7 +22,7 @@ public class AppConfig {
     // 주문
     // config를 통해서 orderService를 조회하면
     public OrderService orderService() {
-        // OrderServiceImpl 반환되는데 두 인터페이스가 인자로 넣어준다.넘어간다.
+        // OrderServiceImpl 반환되는데 두 MemoryMemberRepository FixDiscountPolicy 가 객체 의존관계로 주입된다.
         return  new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
     }
 }
