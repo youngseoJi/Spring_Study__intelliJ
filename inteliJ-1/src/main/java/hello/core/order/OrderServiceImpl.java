@@ -2,14 +2,17 @@ package hello.core.order;
 
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
+import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
-
+// 객체지향
+// 주문
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository = new MemoryMemberRepository(); // 회원저장소
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); // 고정 할인 정책
+    private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); // 정액할인(고정할인) 정책
+//    private final DiscountPolicy discountPolicy = new RateDiscountPolicy(); // 정률할인 정책
 
     @Override
     // 1. 주문생성 요청
