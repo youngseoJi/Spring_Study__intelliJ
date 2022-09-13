@@ -21,7 +21,6 @@ class ApplicationContextInfoTest {
 
            // 직접 등록한 빈만 조회하기 ROLE_APPLICATION
            if(beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {
-               // 스프링 컨테이너에서 스프링 빈을 찾는 방법 : ac.getBean(빈이름, 타입) , ac.getBean(타입)
                Object bean = ac.getBean(beanDefinitionName); // 빈이름으로 조회
                System.out.println("name = " + beanDefinitionName + " object=" + bean);
            }
