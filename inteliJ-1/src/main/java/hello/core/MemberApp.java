@@ -16,8 +16,8 @@ public class MemberApp {
         // MemberService memberService = new MemberServiceImpl();
 
         // AppConfig에 작성한 메서드 사용하기
-        /** ApplicationContext : 스프링 컨테이너, 인터페이스
-         * AppConfig.class를 변수로 사용할 경우? spring이 AppConfig에서 생성한 객체들을 스프링빈(컨테이너에) 등록한다.*/
+        /** ApplicationContext : 스프링 컨테이너(생성해줌 ), 인터페이스
+         * AppConfig.class를 변수로 사용할 경우? spring이 AppConfig의 구성요소, 즉 AppConfig 에서 생성한 (return한) 객체들을 모두 스프링빈(컨테이너에) 등록한다.*/
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class); // 애노테이션 기반의 자바 설정클래스 생성 - ApplicationContext 의 구현체
         // 지정한 함수를 가져온다. - 메서드 이름 입력, 타입 멤버서비스.
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);

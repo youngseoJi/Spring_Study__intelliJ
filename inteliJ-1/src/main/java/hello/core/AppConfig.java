@@ -12,18 +12,19 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
+// AppConfig
 // 애플리케이션의 전체 동작 방식을 설정,구성하는 클래스
 // 1. 실제 동작에 필요한 구현객체 생성
 // 2. 생성한 객체 인스턴스의 참조(레퍼런스)를 생성자를 통해서 주입(연결)
-
 // 역할과 구현클래스가 한눈에 들어오게! 애플리케이션 전체구성이 어떻게 되었는지 빠르게 파악하기 좋다.
 
 @Configuration
 public class AppConfig {
-    // @Bean 스프링 빈: 스프링 컨테이너에 등록된다. ex) memberService(), memberRepositrory() ..등
-    // 스프링 빈 이름 :  @Bean 이 붙은 메서드 명
-
+    /** 스프링 빈 사용하기
+     * @Bean 스프링 빈: 스프링 컨테이너에 등록된다. ex) memberService(), memberRepositrory() ..등
+     * 스프링 빈 이름 짓기: 1. @Bean 이 붙은 메서드 명, 2. @Bean(name="빈이름2") 직접 지정해주기
+     * 주의 : 빈 이름은 모두 다른 이름 지정! - 같은 이름일 경우 무시되거나 덮어지면서 오류발생
+     * 스프링 컨테이너는 설정 정보(구성요소)를 참고해서 의존관계를 주입(DI)함 */
     @Bean // 스프링 빈
     // 회원서비스 생성
     // config를 통해서 memberService를 불러서 사용한다.
