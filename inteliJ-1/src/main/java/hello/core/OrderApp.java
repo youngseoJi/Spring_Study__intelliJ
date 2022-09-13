@@ -7,16 +7,22 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.order.Order;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class OrderApp {
     public static void main(String[] args) {
-    AppConfig appConfig = new AppConfig();
-    MemberService memberService = appConfig.memberService();
-    OrderService orderService = appConfig.orderService(); // MemoryMemberRepository FixDiscountPolicy를 참조하고 있는 상태
+//    AppConfig appConfig = new AppConfig();
+//    MemberService memberService = appConfig.memberService();
+//    OrderService orderService = appConfig.orderService(); // MemoryMemberRepository FixDiscountPolicy를 참조하고 있는 상태
     //psvm
 
 //        MemberService memberService = new MemberServiceImpl();
 //        OrderService orderService = new OrderServiceImpl();
+        // AppConfig에 작성한 메서드 불러와서 사용하기 - MemberService, OrderService 불러오기
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
+        OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
 
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.vip);
