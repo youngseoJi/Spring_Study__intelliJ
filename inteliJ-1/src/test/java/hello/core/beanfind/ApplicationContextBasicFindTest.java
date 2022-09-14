@@ -33,14 +33,15 @@ public class ApplicationContextBasicFindTest {
     @DisplayName("구체 타입으로 조회")
         //  인터페이스 내에 객체로 조회 : 하지만 안좋은 방법, 역할과 구분을 하고 역할에 의존해야하는데 구현에 의존하는 상태인것이다.
     void findBeanByName2(){
-        MemberService memberService = ac.getBean("memberService", MemberServiceImpl.class); // 인터페이스 내에 객체로 조회
+        MemberService memberService = ac.getBean("memberService", MemberServiceImpl.class); // 인터페이스 내에 등록되어있는 객체로 조회
         assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
     @Test
     @DisplayName("조회 대상 스프링 빈 조회X")
     void findBeanByNameX(){
-//        MemberService xxxx = ac.getBean("XXXX", MemberService.class);\
+//        MemberService xxxx = ac.getBean("XXXX", MemberService.class);
+        // assertThrows 테스트검증
         // NoSuchBeanDefinitionException 조회 대상 스프링 빈이 없으면 예외 발생 - 예외가 무조건 실행해야 테스트 성공이다.
         assertThrows(NoSuchBeanDefinitionException.class,
                 // 로직을 실행하면
