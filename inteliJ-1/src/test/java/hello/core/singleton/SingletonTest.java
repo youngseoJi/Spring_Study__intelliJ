@@ -56,9 +56,7 @@ public class SingletonTest {
         MemberService memberService1 = ac.getBean("memberService", MemberService.class);
         MemberService memberService2 = ac.getBean("memberService", MemberService.class);
 
-        //테스트 확인 : 참조값이 같은 것을 확인
-        System.out.println("MemberService1 = " + memberService1);
-        System.out.println("MemberService2 = " + memberService2);
+        //테스트 확인 : 참조값이 같은 것을 확인vice2 = " + memberService2);
         // 테스트 확인 : 두 싱글톤서비스는 같아야 함 singletonService1 == singletonService2
         assertThat(memberService1).isSameAs(memberService2);
     }
