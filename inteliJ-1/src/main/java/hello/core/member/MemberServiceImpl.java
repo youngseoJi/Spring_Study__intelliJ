@@ -1,9 +1,15 @@
 package hello.core.member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 // MemverService 기능에 대한 구현체 생성
+@Component
 public class MemberServiceImpl implements MemberService {
     // ctrl + shift + Enter 자동완성
     private final MemberRepository memberRepository;
 
+    @Autowired // 의존관계 자동 주입 // ac.getBean(MemberRepository.class) 처럼 동작한다.
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

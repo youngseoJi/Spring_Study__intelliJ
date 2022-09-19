@@ -6,8 +6,12 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 // 객체지향
 // 주문
+@Component // 컴포넌트 스캔의 대상이 되면서 스프링빈에 등록된다.
 public class OrderServiceImpl implements OrderService{
 
     // DIP, 준수하기 - 인테페이스에만 의존하게 변경한 것
@@ -16,6 +20,8 @@ public class OrderServiceImpl implements OrderService{
     //  DIP, 준수안한 것 =>  인터페이스에만 의존하도록 클래스 구현체 X, 관심사 분리! 인터페이스와 구현체 분리
     //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); // 정액할인(고정할인) 정책
     //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy(); // 정률할인 정책
+
+    @Autowired // 생성자 위에 작성하면, 스프링이 이것을 생성할때 자동으로 MemberRepository, DiscountPolicy 모두 주입해준다.
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
