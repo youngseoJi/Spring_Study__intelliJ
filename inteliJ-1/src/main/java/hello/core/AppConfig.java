@@ -54,8 +54,8 @@ public class AppConfig {
     public OrderService orderService() {
         // OrderServiceImpl 반환되는데 두 memberRepositrory, discountPolicy 가 객체 의존관계로 주입된다.
         System.out.println("call AppConfig.orderService");
-//        return new OrderServiceImpl(memberRepository(), discountPolicy());
-        return null;
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return null;
     }
     @Bean
     // 정액할인 정택을 정률할인 정책으로 또는 그 반대로 변경한다면? 로직 사용영역 코드가

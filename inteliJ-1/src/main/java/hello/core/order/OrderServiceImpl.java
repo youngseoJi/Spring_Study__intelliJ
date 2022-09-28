@@ -6,13 +6,18 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 // 객체지향
 
-// 생성자 주입은 빈이 등록될떄 같이 주입된다. // OrderServiceImpl 생성 빈에 등록하면서 자동주입
-@Component // 컴포넌트 스캔의 대상이 되면서 스프링빈에 등록된다.
+// 생성자 주입은 빈이 등록될떄 같이 주입된다. - OrderServiceImpl 생성 빈에 등록하면서 자동주입
+@Component
+// 컴포넌트 스캔의 대상이 되면서 스프링빈에 등록된다.
+//@RequiredArgsConstructor
+// -lombok 적용 : @RequiredArgsConstructor 기능 사용시, final이 붙은 필드를 모아서 생성자 자동 생성 (코드에는 보이지 않지만 호출 가능)
 public class OrderServiceImpl implements OrderService{
 
     // DIP, 준수하기 - 인테페이스에만 의존하게 변경한 것
@@ -23,27 +28,15 @@ public class OrderServiceImpl implements OrderService{
     //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); // 정액할인(고정할인) 정책
     //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy(); // 정률할인 정책
 
-
+    // 조회 빈이 2개 이상 - 문제
     // OrderServiceImpl 생성자 생성
-    //  @Autowired // 생성자 위에 Autowired를 작성하면, 스프링이 이것을 생성할때 자동으로 MemberRepository, DiscountPolicy 모두 주입해준다.
-    //생성자가 딱 1개일때는 Autowired가 자동 적용되므로안적어도 된다.
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        //System.out.println("첫번째 액션, 출력 : memberRepository = " + memberRepository);
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-
-//    수정자 주입(setter 주입)
-//    @Autowired // 의존관계 자동주입
-//    public void setMemberRepository(MemberRepository memberRepository) {
-//        System.out.println("memberRepository = " + memberRepository);
-//        this.memberRepository = memberRepository;
-//    }
-//    @Autowired // 의존관계 자동주입
-//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
-//        System.out.println("discountPolicy = " + discountPolicy);
-//        this.discountPolicy = discountPolicy;
-//    }
-    }
+      @Autowired // 는 타입(Type)으로 조회한다. - 생성자 위에 Autowired를 작성시(생성자가 1개일때는 Autowired 자동 적용), 스프링이 이것을 생성할때 자동으로 MemberRepository, DiscountPolicy 모두 주입해준다.
+   // public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy")DiscountPolicy discountPolicy) {
+      public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+          //System.out.println("첫번째 액션, 출력 : memberRepository = " + memberRepository);
+          this.memberRepository = memberRepository;
+          this.discountPolicy = discountPolicy;
+      }
     @Override
     // 1. 주문생성 요청
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
