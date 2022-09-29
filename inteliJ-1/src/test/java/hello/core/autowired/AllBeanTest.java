@@ -42,14 +42,14 @@ public class AllBeanTest {
 
     static class  DiscountService {
         // DiscountService는 Map으로 모든 DiscountPolicy 를 주입받음 -> 이때 fixDiscountPolicy, rateDiscountPolicy 가 주입된다.
-        private final Map<String, DiscountPolicy> policyMap;
+        private final Map<String, DiscountPolicy> policyMap; // policyMap 에 주입된 것 !!
         //Map  key, value
 //        policyMap = {fixDiscountPolicy=hello.core.discount.FixDiscountPolicy@302a07d, rateDiscountPolicy=hello.core.discount.RateDiscountPolicy@5cdd09b1}
         private final List<DiscountPolicy> policies;
         //List  value
         // policies = [hello.core.discount.FixDiscountPolicy@302a07d, hello.core.discount.RateDiscountPolicy@5cdd09b1]
 
-        @Autowired // 빈 1개여서 생략가능
+        @Autowired // 생성자가 1개여서 생략가능
         // DiscountService 빈이 자동관계주입이 될때 AutoAppConfig는 컴포넌트 스캔을 한다. 스프링빈에 등록된 rate, fix 디스카운트를 등록한다.
         public DiscountService(Map<String, DiscountPolicy> policyMap, List<DiscountPolicy> policies) {
             this.policyMap = policyMap;
@@ -68,7 +68,7 @@ public class AllBeanTest {
     }
 }
    /**  주입 분석
-Map<String, DiscountPolicy> : map의 키에 스프링 빈의 이름을 넣어주고, 그 값으로
+        Map<String, DiscountPolicy> : map의 키에 스프링 빈의 이름을 넣어주고, 그 값으로
         DiscountPolicy 타입으로 조회한 모든 스프링 빈을 담아준다.
         List<DiscountPolicy> : DiscountPolicy 타입으로 조회한 모든 스프링 빈을 담아준다.
         만약 해당하는 타입의 스프링 빈이 없으면, 빈 컬렉션이나 Map을 주입한다. */
