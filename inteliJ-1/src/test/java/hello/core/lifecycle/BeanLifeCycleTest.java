@@ -15,13 +15,14 @@ public class BeanLifeCycleTest {
         // ConfigurableApplicationContext 상위 인터페이스 부모 = AnnotationConfigApplicationContext 하위 인터페이스 자식 그래서 담을 수 있다.
         ConfigurableApplicationContext ac = new AnnotationConfigApplicationContext(LifeCycleConfig.class);
         NetworkClient client = ac.getBean(NetworkClient.class);
-        ac.close(); // 종료//17:44:10.824 [main] DEBUG org.springframework.context.annotation.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@759d26fb, started on Thu Sep 29 17:44:10 KST 2022
+        ac.close();
         // ConfigurableApplicationContext 닫는 메소드를 사용하기 위한 인터페이스, 기본적으로 인터페이스를 닫는 경우가 없어서 ApplicationContext가 제공하지 않는다.
     }
 
     @Configuration
     static class LifeCycleConfig {
-        @Bean NetworkClient networkClient() {
+        @Bean(initMethod = "init", destroyMethod = "close")
+        public NetworkClient networkClient() {
             // 생성자 생성 NetworkClient
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-spring.dev");
