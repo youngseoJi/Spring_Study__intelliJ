@@ -21,7 +21,7 @@ public class BeanLifeCycleTest {
 
     @Configuration
     static class LifeCycleConfig {
-        @Bean(initMethod = "init", destroyMethod = "close")
+        @Bean
         public NetworkClient networkClient() {
             // 생성자 생성 NetworkClient
             NetworkClient networkClient = new NetworkClient();
