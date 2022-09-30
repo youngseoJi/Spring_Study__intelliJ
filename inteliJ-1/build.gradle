@@ -19,6 +19,9 @@ repositories {
 dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter'
+	//web 라이브러리 추가
+	// 참고: spring-boot-starter-web 라이브러리를 추가하면 스프링 부트는 내장 톰켓 서버를 활용해서 서버와 스프링을 함께 실행시킨다
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'javax.inject:javax.inject:1'
 
 	//lombok 라이브러리 추가 시작
