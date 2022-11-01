@@ -30,7 +30,7 @@ public class RequestBodyJsonServlet extends HttpServlet {
 
         HelloData helloData = objectMapper.readValue(messageBody, HelloData.class);
         // json 을 객체로 변환, 유저네임과 나이 값 뽑아내기
-        System.out.println("helloData.username = " + helloData.getUsername());
+        System.out.println("helloData.username = " + helloData.getUsername() );
         System.out.println("helloData.age = " + helloData.getAge());
         /* helloData.username = hello
            helloData.age = 20 */
