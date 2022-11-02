@@ -1,4 +1,4 @@
-package hello.servlet.basic;
+package hello.servlet.basic.Request;
 
 //JSON 형식 전송
 
