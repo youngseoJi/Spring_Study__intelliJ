@@ -23,9 +23,9 @@ public class ResponseHeaderServlet extends HttpServlet {
         response.setHeader("my-header", "hello"); // 임의 헤더생성 가능
 
         //[Header 편의 메서드]
-        // content(response);
-        // cookie(response);
-        redirect(response);
+        content(response);
+        cookie(response);
+        //redirect(response);
 
         // [message body]
         PrintWriter writer = response.getWriter();
