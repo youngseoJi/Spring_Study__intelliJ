@@ -21,8 +21,13 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//JSP 추가 시작
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'javax.servlet:jstl'
+	//JSP 추가 끝
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
 //	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat' - 무료버전인 경우 제거
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
