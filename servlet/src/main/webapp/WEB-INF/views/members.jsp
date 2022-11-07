@@ -1,6 +1,6 @@
  <%@ page contentType="text/html;charset=UTF-8" language="java" %>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-  <%-- taglib 선언 - <c:forEach> 기능을 사용할 수 있다.  --광화문 카페자스%>
+  <%-- taglib 선언 - <c:forEach> 기능을 사용할 수 있다.  --%>
 
 
  <html>
