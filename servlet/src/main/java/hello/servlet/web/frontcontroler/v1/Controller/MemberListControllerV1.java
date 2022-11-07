@@ -2,6 +2,7 @@ package hello.servlet.web.frontcontroler.v1.Controller;
 
 import hello.servlet.domain.member.Member;
 import hello.servlet.domain.member.MemberRepository;
+import hello.servlet.web.frontcontroler.MyView;
 import hello.servlet.web.frontcontroler.v1.ControllerV1;
 
 import javax.servlet.RequestDispatcher;
@@ -26,5 +27,6 @@ public class MemberListControllerV1 implements ControllerV1 {
         String viewPath = "/WEB-INF/views/members.jsp";
         RequestDispatcher dispatcher = req.getRequestDispatcher(viewPath);
         dispatcher.forward(req, resp);
+
     }
 }

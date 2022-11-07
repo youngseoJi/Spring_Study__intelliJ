@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 // ControllerV1 각 컨트롤러 들이 동일한 인터페이스를 상속받음 - 로직의 일관성
-public class MemberformControlerV1 implements ControllerV1 {
+public class MemberFormControlerV1 implements ControllerV1 {
 
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
