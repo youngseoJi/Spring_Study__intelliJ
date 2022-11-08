@@ -22,12 +22,13 @@ public class MyView {
     
     
     // 랜더링 함수 v3 : model, req, resp
+    // model : Map <key 값 String : value 값 Object 형>
     public void render(Map<String, Object> model, HttpServletRequest req,
                        HttpServletResponse response) throws ServletException, IOException {
         // 모델 값을 요청값에 모두 담아주기
         modelToRequestAttribute(model, req);
         RequestDispatcher dispatcher = req.getRequestDispatcher(viewPath);
-        dispatcher.forward(req, response); // viewPath url 에 해당되는 jsp로 보내 뷰 랜더링 
+        dispatcher.forward(req, response); // viewPath url 에 해당되는 jsp로 보내 뷰 랜더링
 
     }
 
