@@ -1,8 +1,8 @@
-package hello.servlet.web.frontcontroler.v1;
+package hello.servlet.web.frontcontroller.v1;
 
-import hello.servlet.web.frontcontroler.v1.Controller.MemberListControllerV1;
-import hello.servlet.web.frontcontroler.v1.Controller.MemberSaveControllerV1;
-import hello.servlet.web.frontcontroler.v1.Controller.MemberFormControlerV1;
+import hello.servlet.web.frontcontroller.v1.Controller.MemberListControllerV1;
+import hello.servlet.web.frontcontroller.v1.Controller.MemberSaveControllerV1;
+import hello.servlet.web.frontcontroller.v1.Controller.MemberFormControlerV1;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,7 +1,6 @@
-package hello.servlet.web.frontcontroler.v1;
+package hello.servlet.web.frontcontroller.v1;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

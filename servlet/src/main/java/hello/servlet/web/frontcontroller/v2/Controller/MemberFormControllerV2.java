@@ -1,7 +1,7 @@
-package hello.servlet.web.frontcontroler.v2.Controller;
+package hello.servlet.web.frontcontroller.v2.Controller;
 
-import hello.servlet.web.frontcontroler.MyView;
-import hello.servlet.web.frontcontroler.v2.ControllerV2;
+import hello.servlet.web.frontcontroller.MyView;
+import hello.servlet.web.frontcontroller.v2.ControllerV2;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
