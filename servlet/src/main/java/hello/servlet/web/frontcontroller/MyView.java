@@ -24,13 +24,14 @@ public class MyView {
     // 랜더링 함수 v3 : model, req, resp
     public void render(Map<String, Object> model, HttpServletRequest req,
                        HttpServletResponse response) throws ServletException, IOException {
+        // 모델 값을 요청값에 모두 담아주기
         modelToRequestAttribute(model, req);
         RequestDispatcher dispatcher = req.getRequestDispatcher(viewPath);
-        dispatcher.forward(req, response);
+        dispatcher.forward(req, response); // viewPath url 에 해당되는 jsp로 보내 뷰 랜더링 
 
     }
 
-    // model 에 있는 데이터를 요청 값에 다 담아준다.
+    // model 에 있는 데이터를 모두 꺼내서 -> HttpServletRequest 요청 값에 다 담아준다. setAttribute key, value 형식으로!
     private void modelToRequestAttribute(Map<String, Object> model, HttpServletRequest req) {
         model.forEach((key, value) -> req.setAttribute(key, value));// 요청값 다 담아두기
     }
