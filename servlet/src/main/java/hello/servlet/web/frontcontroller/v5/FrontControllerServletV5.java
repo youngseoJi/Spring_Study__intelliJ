@@ -50,6 +50,7 @@ public class FrontControllerServletV5 extends HttpServlet {
 
         // 1. 핸들러 호출 (조회): Object 타입 handler(컨트롤러) 반환 = 요청정보를 갖고 핸들러를 찾는 함수 호출
         Object handler = getHandler(req);
+        // MemberFormControllerV3
 
         // 에러처리
         if (handler == null) {
@@ -80,6 +81,7 @@ public class FrontControllerServletV5 extends HttpServlet {
             if (adapter.supports(handler)) {
                 // 해당 adapter(컨트롤러)를 반환
                 return adapter;
+                // MemberFormControllerV3
             }
         }
         // 모든 adapter가 handelr을 지원하지 않으면?

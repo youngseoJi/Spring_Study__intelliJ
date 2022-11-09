@@ -12,6 +12,7 @@ import java.io.IOException;
 // 실제 실행하는 함수
 public interface MyHandlerAdapter {
 
+
     boolean supports(Object handler); // 컨트롤러 지원할 수 있는지 boolean true or false
 
     ModelView handle(HttpServletRequest req, HttpServletResponse resp, Object handler) throws ServletException, IOException;

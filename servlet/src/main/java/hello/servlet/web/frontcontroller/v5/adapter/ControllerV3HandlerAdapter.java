@@ -16,9 +16,12 @@ public class ControllerV3HandlerAdapter implements MyHandlerAdapter {
 
     @Override
     public boolean supports(Object handler) {
-        // ControllerV3만 지원하는 어댑터
-        // ControllerV3 인터페이스로 구현한 것이 넘어오면 true를 반환, 다른 인터페이스로 구현한 것이 넘어오면 false 를 반환한다.
+        /* ControllerV3만 지원하는 어댑터
+         ControllerV3 인터페이스로 구현한 것이 넘어오면 true를 반환, 다른 인터페이스로 구현한 것이 넘어오면 false 를 반환한다.
+        */
         return (handler instanceof ControllerV3);
+        // handler가 MemberFormControllerV3 면? 반환값 : true -> ControllerV3인스턴스를 사용하기에
+
     }
 
     // 어댑터의 역할 : 핸들러를 호출해주고, 결과가 오면 반환타입을 ModelView 타입으로 맞춰서 반환해줘야한다.
