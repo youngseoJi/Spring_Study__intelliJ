@@ -1,6 +1,6 @@
-package hello.servlet.web.frontcontroller.v1.Controller;
+package hello.servlet.web.frontcontroller.v3.controller.v1.Controller;
 
-import hello.servlet.web.frontcontroller.v1.ControllerV1;
+import hello.servlet.web.frontcontroller.v3.controller.v1.ControllerV1;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
