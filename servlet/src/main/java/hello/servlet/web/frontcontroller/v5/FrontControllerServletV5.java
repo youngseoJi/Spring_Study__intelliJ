@@ -94,9 +94,8 @@ public class FrontControllerServletV5 extends HttpServlet {
         for (MyHandlerAdapter adapter : handlerAdapters) {
             // adapter(컨트롤러)가 .supports(handelr/컨트롤러)를 지원하는지 true/false로 체크
             if (adapter.supports(handler)) {
-                // 해당 adapter(컨트롤러)를 반환
                 return adapter;
-                // 반환 MemberFormControllerV3 / MemberFormControllerV4
+                // 해당 adapter(컨트롤러)를 반환 : MemberFormControllerV3 / MemberFormControllerV4
             }
         }
         // 모든 adapter가 handelr을 지원하지 않으면?
