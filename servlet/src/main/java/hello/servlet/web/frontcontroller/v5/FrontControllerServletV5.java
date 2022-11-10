@@ -101,7 +101,7 @@ public class FrontControllerServletV5 extends HttpServlet {
         // 모든 adapter가 handelr을 지원하지 않으면?
         // 에러처리 :  IllegalArgumentException 아규먼트가 잘못되었을 경우
         throw new IllegalArgumentException("Handler adapter 를 찾을 수 없다. handler =" + handler);
-                                            // 디버깅용 : 어떤 핸들러의 어댑터가 없는지 체크되도록
+                                            // 디버깅용 : 어떤 핸들러의 어추볷댑터가 없는지 체크되도록
     }
 
     // 핸들러(지원하는 컨트롤러) 조회: 매핑정보를 갖고 핸들러 맵에서 찾기
