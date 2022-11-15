@@ -16,8 +16,12 @@ import java.io.IOException;
 
 @Slf4j
 @RestController
-// @RestController : HTTP 메시지 바디에 직접 데이터를 입력, Rest API(HTTP API)를 만들 때 사용하는 컨트롤러
-// @RestController 사용시 해당 컨트롤러에 모두 @ResponseBody 가 적용됨. -> @RestController =  @Controller + @ResponseBody
+/** @RestController
+ * * HTTP 메시지 바디에 직접 데이터를 입력, Rest API(HTTP API)를 만들 때 사용하는 컨트롤러
+ *  @RestController 사용시 해당 컨트롤러에 모두 @ResponseBody 가 적용됨.
+ *  -> @RestController =  @Controller + @ResponseBody
+ */
+
 public class ResponseBodyController {
 
     // 서블릿을 직접 다룰 때 처럼
