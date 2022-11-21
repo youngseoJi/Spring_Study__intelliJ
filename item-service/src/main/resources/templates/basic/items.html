@@ -45,7 +45,7 @@
                         <!-- item.id 값을 itemId 변수에 담아 경로변수에 사용 {경로변수}(변수}${변수값})
                             링크) http://localhost:8080/basic/items/1 -->
                 <td><a href="item.html" th:href="@{/basic/items/{itemId}(itemId=${item.id})}" th:text="${item.id}">회원id</a></td>
-                <td><a href="item.html" th:text="@{/basic/items/{itemId}(itemId=${item.id})}" th:text="${item.id}">상품명</a></td>
+                <td><a href="item.html" th:text="@{|/basic/items/${itemId}|}" th:text="${item.id}">상품명</a></td>
                 <td th:text="${item.price}">10000</td>
                 <td th:text="${item.quantity}">10</td>
             </tr>
