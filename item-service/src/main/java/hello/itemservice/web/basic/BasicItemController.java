@@ -115,6 +115,26 @@ import java.util.List;
          return "basic/item";
      }
 
+
+     // 상품수정 폼 조회
+
+     @GetMapping("/{itemId}/edit")
+     // 수정할 item의 id와 model 받기
+    public String editForm(@PathVariable Long itemId, Model model) {
+            // 저장소에서 수정할 itemID 조회
+         Item item = itemRepository.findById(itemId);
+         model.addAttribute("item", item); // item이름으로 수정할 item model에 담기
+         return "basic/editForm"; // 수정폼
+     }
+
+     // 상품 수정 차리 기능 - 리다이렉트
+     @PostMapping("/{itemId}/edit")
+     public String edit(@PathVariable Long itemId, @ModelAttribute Item item) {
+         // 저장소 수정 함수 사용 : 저장할 itemid와 item를 수정완료
+         itemRepository.update(itemId, item);
+         return "redirect:/basic/items/{itemId}"; // 수정완료 후 상세화면 돌아가도록 리다이렉트 설정
+     }
+
      // 테스트용 데이터 추가
     @PostConstruct
     public void init() {
