@@ -100,7 +100,7 @@ import java.util.List;
       * 클래스의 첫글자만 소문자로 변경해서 등록한다.
       * ex) Item item */
 //     @PostMapping("/add")
-     public String addItemV3(@ModelAttribute Item item, Model model) {
+     public String addItemV3(@ModelAttribute Item item) {
 
          itemRepository.save(item);
          // model.addAttribute("item", item); - 자동추가, 생략 가능
@@ -108,11 +108,20 @@ import java.util.List;
      }
 
      // @ModelAttribute 생략 : 대상 객체는 모델에 자동 등록됨.
-     @PostMapping("/add")
-     public String addItemV4( Item item, Model model) {
+//     @PostMapping("/add")
+     public String addItemV4( Item item) {
 
          itemRepository.save(item);
          return "basic/item";
+     }
+     
+     
+     // PRG Post/Redirect/Get 적용
+     // item 등록 후, 상세화면으로 리다이랙트 되도록 설정 post 중복요청 방지
+     @PostMapping("/add")
+     public String addItemV5(Item item) {
+         itemRepository.save(item);
+         return "redirect:/basic/items/" + item.getId();
      }
 
 
