@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -118,10 +119,22 @@ import java.util.List;
      
      // PRG Post/Redirect/Get 적용
      // item 등록 후, 상세화면으로 리다이랙트 되도록 설정 post 중복요청 방지
-     @PostMapping("/add")
+//     @PostMapping("/add")
      public String addItemV5(Item item) {
          itemRepository.save(item);
-         return "redirect:/basic/items/" + item.getId();
+         return "redirect:/basic/items/" + item.getId(); //  URL 인코딩이 안되는 단점
+     }
+
+     // RedirectAttributes :  URL 인코딩,쿼리 파라미터 처리
+     /* pathVariable 바인딩: {itemId}
+        나머지는 쿼리 파라미터로 처리: ?status=true*/
+     @PostMapping("/add")
+     public String addItemV6(Item item, RedirectAttributes redirectAttributes) {
+         // 저장소에 저장한 item
+         Item saveItem = itemRepository.save(item);
+         redirectAttributes.addAttribute("itemId", saveItem.getId());
+         redirectAttributes.addAttribute("status", true);
+         return "redirect:/basic/items/{itemId}" ; // itemId == saveItem.getId() 값으로 치환
      }
 
 
