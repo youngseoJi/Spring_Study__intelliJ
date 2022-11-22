@@ -17,7 +17,10 @@
   </div>
 
 <!-- 저장 완료 메세지
-  파라미터의 status 값에 따라! true면? 저장완료를 띄워라-->
+
+  th:if : 해당 조건이 참이면 실행
+  ${param.status} : 타임리프에서 쿼리 파라미터를 편리하게 조회하는 기능
+  파라미터의 status true면? 저장완료를 띄워라-->
 
   <h2 th:if="${param.status}" th:text="'저장완료'"></h2>
 
