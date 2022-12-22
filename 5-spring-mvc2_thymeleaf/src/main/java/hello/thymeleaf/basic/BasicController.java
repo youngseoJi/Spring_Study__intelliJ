@@ -97,6 +97,21 @@ public class BasicController {
         return "basic/literal";
     }
 
+    // operation 연산
+    @GetMapping("/operation")
+    public String operation(Model model){
+        model.addAttribute("nullData", null);
+        model.addAttribute("data", "spring~");
+        return "/basic/operation";
+
+    }
+
+    // 속성값 설정
+    @GetMapping("/attribute")
+    public String attribute() {
+        return "basic/attribute";
+    }
+
     @Data
     static class User {
         private String username;
