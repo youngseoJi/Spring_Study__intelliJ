@@ -106,6 +106,7 @@ public class BasicController {
 
     }
 
+
     // 속성값 설정
     @GetMapping("/attribute")
     public String attribute() {
