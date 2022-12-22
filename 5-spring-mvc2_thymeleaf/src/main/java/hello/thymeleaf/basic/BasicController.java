@@ -90,7 +90,12 @@ public class BasicController {
         return "basic/link";
     }
 
-
+    // literal 리터럴 (문자) '' 작은 따옴표 필수!
+    @GetMapping("/literal")
+    public String literal(Model model){
+        model.addAttribute("data", "Spring");
+        return "basic/literal";
+    }
 
     @Data
     static class User {
