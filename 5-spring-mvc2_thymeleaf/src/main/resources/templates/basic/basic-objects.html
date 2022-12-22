@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--타임리프 제공 기본 객체들-->
+  <h1> 기본 객체 (Expression Basic Objects)</h1>
+    <ul>
+<!--     출력 예시)  org.apache.catalina.connector.RequestFacade@157e25da -->
+      <li>request = <span th:text="${#request}"></span></li>
+      <li>response = <span th:text="${#response}"></span></li>
+      <li>session = <span th:text="${#session}"></span></li>
+      <li>servletContext = <span th:text="${#servletContext}"></span></li>
+<!--       출력예시) ko_KR  사용언어-->
+      <li>locale = <span th:text="${#locale}"></span></li>
+    </ul>
+
+  <!--  편의 객체
+        자주쓰는 것들은 편의객체를 제공
+
+        HTTP 요청 파라미터 접근: param
+          예) ${param.paramData}
+        HTTP 세션 접근: session
+          예) ${session.sessionData}
+        스프링 빈 접근: @
+          예) ${@helloBean.hello('Spring!')}-->
+  <h1>편의 객체</h1>
+  <ul>
+<!--   ${param.paramData} = HelloParam  파라미터값을 바로 꺼낼 수 있음 -->
+    <li>Request Parameter = <span th:text="${param.paramData}"></span></li>
+<!--    session 에 답아둔 데이터 출력-->
+    <li>session = <span th:text="${session.sessionData}"></span></li>
+<!--    스프링 빈에 직접 접근 @빈이름-->
+    <li>spring bean = <span th:text="${@helloBean.hello('Spring!')}"></span></li>
+  </ul>
+</body>
+</html>
