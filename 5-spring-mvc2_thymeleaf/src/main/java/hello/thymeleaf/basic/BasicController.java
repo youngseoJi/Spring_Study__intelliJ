@@ -113,6 +113,59 @@ public class BasicController {
         return "basic/attribute";
     }
 
+    // each 반복
+    @GetMapping("/each")
+    public String each(Model model) {
+        // addUsers : 회원 저장 기능 사용
+        addUsers(model);
+        return "basic/each";
+    }
+
+    // 회원 저장 기능
+    // list에 회원을 담은 model 저장소
+    private void addUsers(Model model) {
+        List<User> list = new ArrayList<>();
+        list.add(new User("userA", 10));
+        list.add(new User("userB", 20));
+        list.add(new User("userC", 30));
+
+        // model 저장소에 user 키 : list {..,..,..} 값을 담는다.
+        model.addAttribute("users", list);
+    }
+
+    // 조건문
+    @GetMapping("/condition")
+    public String condition(Model model) {
+        addUsers(model);
+        return "basic/condition";
+    }
+
+    // 타임리프 주석
+
+    @GetMapping("/comments")
+    public String comments(Model model) {
+        model.addAttribute("data", "Spring");
+        return "basic/comments";
+    }
+
+    // 블록 block : 타임리프 유일한 자체 태그
+
+    @GetMapping("/block")
+    public String block(Model model) {
+        addUsers(model);
+        return "basic/block";
+    }
+
+    // 자바스크립트인라인 : 자바스크립트에서 타임리프를 편리하게 사용할 수 있는 기능
+    @GetMapping("/javascript")
+    public String javascript(Model model) {
+
+        model.addAttribute("user1", new User("estell", 25));
+        model.addAttribute("user2", new User("estell\"A\"", 30));
+        addUsers(model);
+        return "basic/javascript";
+    }
+
     @Data
     static class User {
         private String username;
