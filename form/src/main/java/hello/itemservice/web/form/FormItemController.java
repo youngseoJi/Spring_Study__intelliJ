@@ -31,8 +31,11 @@ public class FormItemController {
         return "form/item";
     }
 
+    // 타임리프
+    // HTML 에서 th:object 를 사용하기위해 데이터가 빈 item 객체를 만들어 addForm에 전달해준것
     @GetMapping("/add")
-    public String addForm() {
+    public String addForm(Model model) {
+        model.addAttribute("item", new Item());
         return "form/addForm";
     }
 
