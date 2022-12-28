@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <h1>URL 링크</h1>
+      <ul>
+        <!--단순한 URL :  기본 URL 출력 @{}
+                    /hello-->
+        <li><a th:href="@{/hello}">basic url</a></li>
+        <!--쿼리 파라미터 : () 에 있는 부분은 쿼리 파라미터로 처리
+                        ${param1} 에는 model에 param1,2 키로 담아둔 data1,2 값이 파라미터로 치환
+                        /hello?param1=data1&param2=data2-->
+
+        <li><a th:href="@{/hello(param1=${param1}, param2=${param2})}">hello query param</a></li>
+        <!--경로 변수 : URL 경로상에 변수가 있으면 () 부분은 경로 변수로 처리 , ()안의 데이터가 {파라미터} 치환
+                      /hello/data1/data2 -->
+        <li><a th:href="@{/hello/{param1}/{param2}(param1=${param1}, param2=${param2})}">path variable</a></li>
+        <!--경로 변수 + 쿼리 파라미터 : 경로 변수와 쿼리 파라미터를 함께 사용가능
+                      /hello/data1?param2=data2 -->
+        <li><a th:href="@{/hello/{param1}(param1=${param1}, param2=${param2})}">path variable + query parameter</a></li>
+      </ul>
+  </body>
+</html>
